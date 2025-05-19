@@ -9,27 +9,42 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="logo">TOP 10 DJS 2025</div>
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Músicas</a>
-            <a href="#">Sobre</a>
-            <a href="#">Contato</a>
-        </nav>
-        <div>   
-            <a href="https://github.com/cardosokks/ifb_atividade_html/" class="github" title="Ver o Código no Github" >
+
+    <nav class="navbar">
+    <div class="logo">TOP 10 DJS 2025</div>
+    <button class="menu-toggle" id="menu-toggle">
+      ☰
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="https://github.com/cardosokks/ifb_atividade_html/" class="github" title="Ver o Código no Github">
                 <img src="images/github.png" width="30px" alt="Logo" class="logo-img">
-            </a>
-            
-        </div>
-    </header>
+            </a></li>
+    </ul>
+  </nav>
+
     <main class="main-content"></main>
+
     <footer class="footbar">
         &copy; 2025 Ricardo Cardoso. Não Oficial.
-        
     </footer>
+
     <script src="js/script.js"></script>
+    <script>
+  const toggleButton = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggleButton.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+
+    // Alterna o símbolo entre ☰ e ✖
+    toggleButton.textContent = navLinks.classList.contains('show') ? '✖' : '☰';
+  });
+</script>
+
 </body>
 
 </html>

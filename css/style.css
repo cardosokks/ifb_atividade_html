@@ -10,6 +10,12 @@
      --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
  }
 
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
  body {
      margin: 0;
      font-family: 'Segoe UI', Arial, sans-serif;
@@ -19,36 +25,57 @@
  }
 
  .navbar {
-     background: var(--primary-color);
-     color: #fff;
-     padding: 1rem 2rem;
      display: flex;
+     justify-content: space-between;
+     top: 0;
+     background-color: var(--primary-color);
+     color: var(--secondary-color);
      align-items: center;
-     justify-content: space-around;
+     padding: 16px 24px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
  }
 
- .navbar .logo {
+ .logo {
      font-size: 1.5rem;
      font-weight: bold;
-     letter-spacing: 2px;
+     color: var(--secondary-color);
  }
 
- .navbar .github :hover{
-    transform: scale(1.35);
-    transition: transform 0.2s;      
+ .github :hover {
+     color: var(--primary-color);
+     transform: scale(1.05);
+     transition: transform 0.2s;
  }
 
- .navbar nav a {
-     color: #fff;
+ .nav-links {
+     list-style: none;
+     display: flex;
+     gap: 20px;
+ }
+
+ .nav-links a {
      text-decoration: none;
-     margin: 0 1rem;
-     font-size: 1rem;
-     transition: color 0.2s;
+     color: var(--secondary-color);
+     font-weight: 500;
+     transition: color 0.3s;
  }
 
- .navbar nav a:hover {
-     color: #ffb347;
+ .nav-links a:hover {
+     color: #4f46e5;
  }
+
+
+ .menu-toggle {
+     color: white;
+     font-size: 1.5rem;
+     background: none;
+     border: none;
+     cursor: pointer;
+     display: none;
+     z-index: 2;
+     transition: color 0.3s;
+ }
+
 
  .main-content {
      max-width: 900px;
@@ -97,43 +124,37 @@
  }
 
  .th1 {
-     background: linear-gradient(
-    135deg,
-    #ffd500 0%,
-    #f7e98e 15%,
-    #f5d76e 30%,
-    #e6b800 45%,
-    #ffdb4a 60%,
-    #f6ba07 75%,
-    #ffbf00 100%
-  ) !important;
+     background: linear-gradient(135deg,
+             #ffd500 0%,
+             #f7e98e 15%,
+             #f5d76e 30%,
+             #e6b800 45%,
+             #ffdb4a 60%,
+             #f6ba07 75%,
+             #ffbf00 100%) !important;
      background-size: cover !important;
  }
 
  .th2 {
-     background: linear-gradient(
-    135deg,
-    #ff9900 0%,
-    #f7cb8e 15%,
-    #f5b66e 30%,
-    #e69200 45%,
-    #cf6b00 60%,
-    #a64b00 75%,
-    #7c4200 100%
-  ) !important;
+     background: linear-gradient(135deg,
+             #ff9900 0%,
+             #f7cb8e 15%,
+             #f5b66e 30%,
+             #e69200 45%,
+             #cf6b00 60%,
+             #a64b00 75%,
+             #7c4200 100%) !important;
  }
 
  .th3 {
-      background: linear-gradient(
-    135deg,
-    #393530 0%,
-    #816d52 15%,
-    #9b9184 30%,
-    #beb29b 45%,
-    #c0b1a2 60%,
-    #968c83 75%,
-    #4f4c49 100%
-  ) !important;
+     background: linear-gradient(135deg,
+             #393530 0%,
+             #816d52 15%,
+             #9b9184 30%,
+             #beb29b 45%,
+             #c0b1a2 60%,
+             #968c83 75%,
+             #4f4c49 100%) !important;
  }
 
  .position {
@@ -163,7 +184,7 @@
  .subcontent p {
      padding: 1rem;
      border: var(--border-color) solid 2px;
-     background-color:var(--secondary-color);
+     background-color: var(--secondary-color);
      border-radius: var(--border-radius);
      height: 150px;
      color: var(--primary-color);
@@ -208,7 +229,38 @@
      font-size: 1rem;
  }
 
- @media (max-width: 670px) {
+ @media (max-width: 768px) {
+     .menu-toggle {
+         display: block;
+     }
+
+     .nav-links {
+         display: none;
+         flex-direction: column;
+         gap: 10px;
+         width: 100%;
+         background-color: #fff;
+         padding: 16px;
+     }
+
+     .nav-links a {
+         font-size: 15pt;
+     }
+
+     .nav-links.show {
+         top: 0;
+         left: 0;
+         position: absolute;
+         display: flex;
+         width: 100%;
+         height: 100%;
+         align-items: center;
+         flex-direction: column;
+         background-color: var(--primary-color);
+         z-index: 1;
+         justify-content: space-around;
+     }
+
      .main-content {
          padding: 1rem;
          margin: 0 0 3rem 0;
@@ -248,15 +300,5 @@
      .profile img {
          width: 150px;
          height: 150px;
-     }
-
-     .navbar {
-         flex-direction: column;
-         align-items: center;
-     }
-
-     .navbar nav {
-         display: flex;
-         margin-top: 0.5rem;
      }
  }
